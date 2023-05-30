@@ -1,0 +1,10 @@
+%hecho
+gustan(juan,maria).
+gustan(maria,juan).
+gustan(juan,sofia).
+
+%reglas
+novios(X,Y):-gustan(X,Y),gustan(Y,X).
+
+%preguntas
+?-novios(juan,sofia).

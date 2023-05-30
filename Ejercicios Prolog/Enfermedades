@@ -1,0 +1,39 @@
+%HECHOS
+padece(gustavo, gripe).
+padece(natalia, hepatitis).
+padece(juanes, intoxicacion).
+padece(francia, hepatitis).
+padece(sofia, gripe).
+
+sintoma(fiebre, gripe).
+sintoma(cansancio, hepatitis).
+sintoma(dolor_estomago, intoxicacion).
+sintoma(cansancio, gripe).
+
+suprime(aspirina, fiebre).
+suprime(lomotil, dolor_estomago).
+
+% REGLAS
+alivia(Farmaco, Enfermedad):-sintoma(Sintoma, Enfermedad), suprime(Farmaco, Sintoma).
+
+deberia_tomar(Persona, Farmaco):- padece(Persona, Enfermedad), alivia(Farmaco, Enfermedad).
+
+presenta(Paciente, Sintoma) :- padece(Paciente, Enfermedad), sintoma(Sintoma, Enfermedad).
+
+
+
+%PREGUNTAS SOBRE REGLAS
+%1
+%?-read(X, "digite un nombre "), write("el individuo padece de: "),padece(X,Y),write(Y),nl.
+
+%2
+%?-padece(X, gripe),write(X),nl,ln.
+
+%3
+%?-presenta(X, dolor_estomago), write(X),ln,nl.
+
+%4
+%?-presenta(X, cansancio), write(X),nl, ln.
+
+%5
+?-read(Y,"digite el nombre de la persona: "),write("deberia tomar:  "),deberia_tomar(Y, Farmaco), write(Farmaco), nl.

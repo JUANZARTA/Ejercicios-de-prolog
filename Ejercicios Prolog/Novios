@@ -1,0 +1,14 @@
+%hecho
+gustan(juan,maria).
+gustan(maria,juan).
+gustan(juan,sofia).
+
+%reglas
+novios(X,Y):-gustan(X,Y),gustan(Y,X).
+
+%preguntas
+?-novios(juan,maria).
+
+?-novios(juan,sofia).
+
+?-novios(X,Y), write(X), write(Y).

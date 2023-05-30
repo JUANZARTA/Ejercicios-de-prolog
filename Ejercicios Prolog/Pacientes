@@ -1,0 +1,75 @@
+5%HECHOS
+% Definición de los pacientes
+paciente(maria, popayan, si).
+paciente(lucia, silvia, no).
+paciente(javier, piendamo, no).
+paciente(julio, popayana, si).
+paciente(oscar, silvia, no).
+paciente(juan, popayan, si).
+
+% Definición de los médicos
+medico(jose).
+medico(carlos).
+medico(pedro).
+medico(lucia).
+
+% Relación entre los pacientes y sus médicos
+atiende(jose, maria).
+atiende(jose, lucia).
+atiende(carlos, javier).
+atiende(carlos, julio).
+atiende(pedro, oscar).
+atiende(pedro, juan).
+
+% Definición de las localidades
+localidad(popayan).
+localidad(silvia).
+localidad(piendamo).
+
+% Relación entre los pacientes y sus localidades
+vive_en(maria, popayan).
+vive_en(julio, popayan).
+vive_en(juan, popayan).
+vive_en(lucia, silvia).
+vive_en(oscar, silvia).
+vive_en(javier, piendamo).
+
+% Definición de los pacientes pensionados
+pensionado(maria, si).
+pensionado(javier, si).
+pensionado(julio, si).
+pensionado(juan, no).
+pensionado(lucia, no).
+pensionado(oscar, no).
+
+
+
+
+%REGLAS
+% Regla para verificar si un paciente está activo
+%activo(P) :- paciente(P),\+ pensionado(P).
+X_es_medico_de_Y(X,Y) :- medico(X), paciente(Y), atiende(X, Y).
+
+
+
+%PREGUNTAS
+%Quienes son los paciente del doctor carlos?
+%?-atiende(carlos,X),write(X),nl,ln.
+X_es_medico_de_Y(carlos,Y),write(Y),nl,ln.
+
+%Oscar es paciente del doctor Jose?
+%?-atiende(jose,oscar),write(si),nl,ln.
+
+%Quien es el doctor de Julio
+%?-atiende(X,julio),write(X),nl,ln.
+
+%Que paciente son de popayan y ademas son pensionados
+%?-vive_en(X,popayan), pensionado(X,si), write(X),nl,ln.
+
+%QUe paciente estan activos y ademas son de silvia
+%?-vive_en(X,silvia), pensionado(X,no), write(X),nl,ln.
+
+
+
+
+

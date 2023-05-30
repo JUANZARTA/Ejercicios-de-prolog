@@ -1,0 +1,22 @@
+%Hechos
+vivio_violencia_en_entorno(carlos, familiar).
+vivio_violencia_en_entorno(carlos, social).
+vivio_violencia_en_entorno(ana, familiar).
+vivio_violencia_en_entorno(pedro, social).
+vivio_violencia_en_entorno(luis, familiar).
+vivio_violencia_en_entorno(maria, social).
+vivio_violencia_en_entorno(laura, familiar).
+vivio_violencia_en_entorno(laura, social).
+vivio_violencia_en_entorno(jorge, familiar).
+vivio_violencia_en_entorno(jorge, social).
+vivio_violencia_en_entorno(andrea, familiar).
+vivio_violencia_en_entorno(andrea, social).
+
+
+%Reglas
+infancia_traumatica(X) :- vivio_violencia_en_entorno(X, familiar), vivio_violencia_en_entorno(X, social).
+tiene_complejos(X) :- contento_con_si(X, no), (se_averguenza_de_condicion (X, fisica) ; se_averguenza_de_condicion (X, economica)).
+criminal_en_potencia(X) :- infancia_traumatica(X), tiene_complejos(X), recibio_maltrato(X), amor_comprension(X, no).
+
+
+%Preguntas

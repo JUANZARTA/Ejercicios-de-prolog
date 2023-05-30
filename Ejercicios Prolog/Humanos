@@ -1,0 +1,11 @@
+%hechos
+respeta(andres).
+se_respeta(andre).
+respeta(carlos).
+se_respeta(carlos).
+
+%regla
+respeta:-respeta(carlos),se_respeta(carlos).
+
+%pregunta
+?-respeta(carlos).
